@@ -1,11 +1,16 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import NewsSummeryCard from "../Shared/NewsSummeryCard/NewsSummeryCard";
 
-const Cetagory = () => {
+const Category = () => {
+  const CategoryNews = useLoaderData();
   return (
     <div>
-      <h2>this is cetagory</h2>
+      {CategoryNews.map((news) => (
+        <NewsSummeryCard key={news._id} news={news}></NewsSummeryCard>
+      ))}
     </div>
   );
 };
 
-export default Cetagory;
+export default Category;
