@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
@@ -22,7 +23,11 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError("/");
-        navigate(from, { replace: true });
+        if (user.emailVarified) {
+          navigate(from, { replace: true });
+        } else {
+          toast.error("Your Email is not varified,Please varify your email");
+        }
       })
       .catch((error) => {
         console.error(error);
