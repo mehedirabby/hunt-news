@@ -46,8 +46,12 @@ const Header = () => {
               <Nav.Link href="#deets">
                 {user?.uid ? (
                   <>
-                    <span>{user?.displayName}</span>
-                    <Button variant="light" onClick={handleLogOut}>
+                    <span className="me-2">{user?.displayName}</span>
+                    <Button
+                      className="m-2"
+                      variant="light"
+                      onClick={handleLogOut}
+                    >
                       Log Out
                     </Button>
                   </>
